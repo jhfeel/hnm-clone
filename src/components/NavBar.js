@@ -31,6 +31,7 @@ const NavBar = () => {
         />
       </div>
       <div className="menu-area">
+        <div id="fake"></div>
         <ul className="menu-list">
           {menuList.map((menu) => {
             return <li>{menu}</li>;

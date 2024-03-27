@@ -11,6 +11,16 @@
   justify-content: center;
 }
 
+.menu-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#fake {
+  width: 120px;
+}
+
 .menu-list {
   display: flex;
   list-style-type: none;
@@ -19,20 +29,12 @@
   padding: 10px;
 }
 
-.menu-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .search-container {
   border-bottom: 1px solid black;
   height: 27px;
   display: flex;
   align-items: center;
-  position: fixed;
-  right: 0;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .search-input {
