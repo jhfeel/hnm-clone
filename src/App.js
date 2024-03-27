@@ -4,6 +4,7 @@ import ProductAll from "./pages/ProductAll";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
 import NavBar from "./components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

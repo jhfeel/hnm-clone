@@ -44,3 +44,16 @@
   outline: none;
   margin-left: 5px;
 }
+
+.ProductCard {
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.ProductCard img {
+  width: 250px;
+}
+
+.ProductCard:hover {
+  transform: scale(1.1);
+}
