@@ -1,21 +1,41 @@
 import React from "react";
+import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setAuthenticated }) => {
+  const naviagte = useNavigate();
+
+  const loginUser = (event) => {
+    event.preventDefault();
+    console.log(`login user function issue`);
+    setAuthenticated(true);
+    naviagte("/");
+  };
+
   return (
-    <div className="Login">
-      <div className="login-container">
-        <h5>로그인</h5>
-        <input className="id-input" type="text" placeholder="아이디" />
-        <input className="pw-input" type="password" placeholder="패스워드" />
-        <div className="auto-login-container">
-          <input type="checkbox" id="customCheckbox" hidden />
-          <label for="customCheckbox" class="custom-checkbox"></label>
-          자동 로그인
-        </div>
-        <input type="button" className="login-submit-btn" value="로그인" />
-        <input type="button" className="signup-btn" value="회원가입" />
-      </div>
-    </div>
+    <Container>
+      <Form
+        onSubmit={(event) => {
+          loginUser(event);
+        }}
+      >
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>아이디</Form.Label>
+          <Form.Control type="id" placeholder="ID" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>패스워드</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+        <Button variant="danger" type="submit">
+          로그인
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
