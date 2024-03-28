@@ -13,7 +13,7 @@ const Login = ({ setAuthenticated }) => {
   };
 
   return (
-    <Container>
+    <Container style={{ maxWidth: `600px` }}>
       <Form
         onSubmit={(event) => {
           loginUser(event);

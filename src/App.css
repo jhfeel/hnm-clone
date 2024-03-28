@@ -63,7 +63,7 @@
   transform: scale(1.1);
 }
 
-.Login {
+/* .Login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,4 +131,8 @@
 
 #customCheckbox:checked + .custom-checkbox {
   background-color: #e29da5;
+} */
+
+.login-container {
+  max-width: 80vw;
 }
