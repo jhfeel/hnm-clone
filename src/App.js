@@ -4,7 +4,7 @@ import ProductAll from "./pages/ProductAll";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {

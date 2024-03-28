@@ -6,7 +6,7 @@ const ProductAll = () => {
   const [productList, setProductList] = useState([]);
 
   const getProducts = async () => {
-    let url = `http://localhost:5000/products`;
+    let url = `https://my-json-server.typicode.com/jhfeel/hnm-clone/products`;
     const response = await fetch(url);
     const data = await response.json();
     setProductList(data);
