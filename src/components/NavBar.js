@@ -4,18 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
+const NavBar = ({
+  authenticated,
+  setAuthenticated,
+  setIsMenuOpen,
+  menuList,
+}) => {
   const naviagte = useNavigate();
-  const menuList = [
-    "Women",
-    "Men",
-    "Baby",
-    "Kids",
-    "H&M HOME",
-    "Sport",
-    "Sale",
-    "지속가능성",
-  ];
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -30,11 +25,20 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
     }
   };
 
+  const openSideMenu = () => {
+    console.log("open");
+    setIsMenuOpen(true);
+  };
+
   return (
     <div className="NavBar">
       <div className="nav-section">
         <div className="menu-button">
-          <FontAwesomeIcon className="menu-logo" icon={faBars} />
+          <FontAwesomeIcon
+            className="menu-logo clickable"
+            icon={faBars}
+            onClick={openSideMenu}
+          />
         </div>
         <div className="logo-img-container">
           <img
@@ -48,13 +52,13 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
           />
         </div>
         {authenticated ? (
-          <div className="login-button" onClick={singOut}>
+          <div className="login-button clickable" onClick={singOut}>
             <FontAwesomeIcon className="login-icon" icon={faUser} />
             <div className="login-text">로그아웃</div>
           </div>
         ) : (
           <div
-            className="login-button"
+            className="login-button clickable"
             onClick={() => {
               naviagte("/login");
             }}
@@ -68,7 +72,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
         <div id="fake"></div>
         <ul className="menu-list">
           {menuList.map((menu) => {
-            return <li>{menu}</li>;
+            return <li className="clickable">{menu}</li>;
           })}
         </ul>
         <div className="search-container">
