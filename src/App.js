@@ -12,7 +12,10 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar
+        authenticated={authenticated}
+        setAuthenticated={setAuthenticated}
+      />
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route

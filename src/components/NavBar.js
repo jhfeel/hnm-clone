@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ authenticated, setAuthenticated }) => {
   const naviagte = useNavigate();
   const menuList = [
     "Women",
@@ -24,18 +24,31 @@ const NavBar = () => {
     }
   };
 
+  const singOut = () => {
+    if (window.confirm("정말 로그아웃하시겠습니까?")) {
+      setAuthenticated(false);
+    }
+  };
+
   return (
     <div>
       <div>
-        <div
-          className="login-button"
-          onClick={() => {
-            naviagte("/login");
-          }}
-        >
-          <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
-        </div>
+        {authenticated ? (
+          <div className="login-button" onClick={singOut}>
+            <FontAwesomeIcon icon={faUser} />
+            <div>로그아웃</div>
+          </div>
+        ) : (
+          <div
+            className="login-button"
+            onClick={() => {
+              naviagte("/login");
+            }}
+          >
+            <FontAwesomeIcon icon={faUser} />
+            <div>로그인</div>
+          </div>
+        )}
       </div>
       <div className="nav-section">
         <img
