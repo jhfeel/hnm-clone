@@ -21,12 +21,12 @@ const ProductDetail = () => {
     <div>
       <Container>
         <Row>
-          <Col className="product-img">
+          <Col xs={10} sm={6} md={6} lg={6} className="product-img">
             <img src={product?.img} alt="상품 이미지" />
           </Col>
-          <Col>
+          <Col xs={10} sm={6} md={6} lg={6}>
             <div>{product?.title}</div>
-            <div>{product?.price}</div>
+            <div>₩{product?.price}</div>
           </Col>
         </Row>
       </Container>

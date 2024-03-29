@@ -95,6 +95,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .ProductCard img {
@@ -105,7 +107,11 @@
 }
 
 .ProductCard:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.product-text {
+  font-size: 13px;
 }
 
 .login-container {
@@ -114,7 +120,12 @@
 
 .product-img {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+}
+
+.product-img img {
+  width: 100%;
+  max-width: 400px;
 }
 
 /* react bootstrap row */
