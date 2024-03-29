@@ -17,6 +17,13 @@ const NavBar = () => {
     "지속가능성",
   ];
 
+  const search = (event) => {
+    if (event.key === "Enter") {
+      let keyword = event.target.value;
+      naviagte(`/?q=${keyword}`);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -50,7 +57,12 @@ const NavBar = () => {
         </ul>
         <div className="search-container">
           <FontAwesomeIcon icon={faSearch} />
-          <input className="search-input" type="text" placeholder="제품 검색" />
+          <input
+            className="search-input"
+            type="text"
+            placeholder="제품 검색"
+            onKeyDown={(event) => search(event)}
+          />
         </div>
       </div>
     </div>

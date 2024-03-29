@@ -136,3 +136,8 @@
 .login-container {
   max-width: 80vw;
 }
+
+.product-img {
+  display: flex;
+  justify-content: flex-end;
+}
