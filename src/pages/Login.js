@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { authenticationAction } from "../redux/actions/authenticationAction";
 
-const Login = ({ setAuthenticated }) => {
-  const naviagte = useNavigate();
+const Login = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const loginUser = (event) => {
     event.preventDefault();
-    console.log(`login user function issue`);
-    setAuthenticated(true);
-    naviagte("/");
+
+    dispatch(authenticationAction.login(id, password));
+    navigate("/");
   };
 
   return (
@@ -21,12 +26,20 @@ const Login = ({ setAuthenticated }) => {
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>아이디</Form.Label>
-          <Form.Control type="id" placeholder="ID" />
+          <Form.Control
+            type="id"
+            placeholder="ID"
+            onChange={(e) => setId(e.target.value)}
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>패스워드</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />

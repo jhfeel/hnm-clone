@@ -2,15 +2,14 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { authenticationAction } from "../redux/actions/authenticationAction";
 
-const NavBar = ({
-  authenticated,
-  setAuthenticated,
-  setIsMenuOpen,
-  menuList,
-}) => {
+const NavBar = ({ setIsMenuOpen, menuList }) => {
   const naviagte = useNavigate();
+  const authenticated = useSelector((state) => state.auth.authenticated);
+  const dispatch = useDispatch();
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -21,7 +20,7 @@ const NavBar = ({
 
   const singOut = () => {
     if (window.confirm("정말 로그아웃하시겠습니까?")) {
-      setAuthenticated(false);
+      dispatch(authenticationAction.logout(authenticated));
     }
   };
 
