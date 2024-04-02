@@ -1,6 +1,4 @@
 function login(id, password) {
-  console.log("auth action");
-
   return (dispatch, getState) => {
     dispatch({ type: "LOGIN_SUCCESS", payload: { id, password } });
   };
