@@ -31,22 +31,11 @@ function App() {
         menuList={menuList}
       />
       <Overlay isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <NavBar
-        authenticated={authenticated}
-        setAuthenticated={setAuthenticated}
-        setIsMenuOpen={setIsMenuOpen}
-        menuList={menuList}
-      />
+      <NavBar setIsMenuOpen={setIsMenuOpen} menuList={menuList} />
       <Routes>
         <Route path="/" element={<ProductAll />} />
-        <Route
-          path="/login"
-          element={<Login setAuthenticated={setAuthenticated} />}
-        />
-        <Route
-          path="/product/:id"
-          element={<PrivateRoute authenticated={authenticated} />}
-        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<PrivateRoute />} />
       </Routes>
     </div>
   );
