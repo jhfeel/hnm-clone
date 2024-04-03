@@ -10,7 +10,6 @@ import SideMenu from "./components/SideMenu";
 import Overlay from "./components/Overlay";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuList = [
     "Women",
